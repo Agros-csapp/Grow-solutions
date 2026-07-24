@@ -1,0 +1,32 @@
+services:
+  api:
+    build: ./apps/api
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-1h}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:4173}
+      AGROS_DB_PATH: /app/data/agros.db
+      SEED_ADMIN: ${SEED_ADMIN:-true}
+      SEED_ADMIN_EMAIL: ${SEED_ADMIN_EMAIL:-admin@agros.local}
+      SEED_ADMIN_PASSWORD: ${SEED_ADMIN_PASSWORD:?SEED_ADMIN_PASSWORD is required}
+    ports:
+      - "3000:3000"
+    volumes:
+      - agros_data:/app/data
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./apps/web
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:3000/api/v1}
+    ports:
+      - "4173:4173"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  agros_data:

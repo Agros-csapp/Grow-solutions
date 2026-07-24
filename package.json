@@ -1,0 +1,17 @@
+{
+  "name": "agros-foundation",
+  "private": true,
+  "version": "0.5.0-alpha.8",
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "install:all": "npm install --workspaces",
+    "build": "npm run build -w apps/api && npm run build -w apps/web",
+    "test": "npm run test -w apps/api",
+    "check": "npm run build && npm run test",
+    "dev:api": "npm run start:dev -w apps/api",
+    "dev:web": "npm run dev -w apps/web"
+  }
+}
