@@ -1,0 +1,1 @@
+import { Module } from '@nestjs/common'; import { UpisController } from './upis.controller'; import { UpisService } from './upis.service'; @Module({controllers:[UpisController],providers:[UpisService],exports:[UpisService]}) export class UpisModule{}

@@ -1,0 +1,1 @@
+import { Module } from '@nestjs/common'; import { MissionControlController } from './mission-control.controller'; import { MissionControlService } from './mission-control.service'; @Module({controllers:[MissionControlController],providers:[MissionControlService]}) export class MissionControlModule{}

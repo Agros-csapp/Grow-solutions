@@ -1,4 +1,4 @@
-# AGROS Foundation 0.5.0-alpha.7
+# Grow Solutions 0.5.0-alpha.7
 
 MVP ejecutable para gestión de UPI, captura agronómica, decisiones, procesos, protocolos, evidencias, Timeline, Mission Control, Mi Día y simulación hídrica.
 
@@ -34,7 +34,7 @@ npm run dev:web
 
 ## Usuario local
 
-- Correo: `admin@agros.local`
+- Correo: `admin@grow.local`
 - Contraseña: `Agros123!`
 
 ## Datos
